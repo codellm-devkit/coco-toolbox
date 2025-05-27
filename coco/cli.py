@@ -1,35 +1,39 @@
-import os
 import typer
-from pathlib import Path
 from typing import *
+from cldk import CLDK
+from pathlib import Path
+from dataclasses import dataclass, field
 from contextlib import asynccontextmanager
 from collections.abc import AsyncIterator
-from dataclasses import dataclass
-from cldk import CLDK
-from fastmcp import FastMCP, Context
 from cldk.analysis.java import JavaAnalysis
-from coco.utils.session_manager import SessionManager
-from fastmcp.server.dependencies import get_context
+from fastmcp import FastMCP, Context
+from coco.utils.logging import logger
 
 
 @dataclass
-class CoCoConfig:
+class CLDKAnalysis:
     """
-    Configuration for the CoCo MCP server.
+    Data class to hold the CLDK analysis instance.
     """
 
-    analysis: JavaAnalysis | None
+    project_path: Path
+    analysis_instance: JavaAnalysis | None = field(default=None, init=False)
+
+    def __post_init__(self):
+        logger.info(f"Analysis initialized for project at: {self.project_path}")
+        self.analysis_instance = CLDK("java").analysis(project_path=str(self.project_path))
 
 
-@asynccontextmanager
-async def coco_lifespan(server: FastMCP) -> AsyncIterator[CLDK]:
-    """
-    Context manager to start the CoCo MCP server.
-    """
-    yield CoCoConfig(analysis=analysis)
+def create_lifespan(project_path: Path):
+    @asynccontextmanager
+    async def coco_lifespan(server: FastMCP) -> AsyncIterator[CLDKAnalysis]:
+        """
+        Context manager to start the CoCo MCP server.
+        """
+        yield CLDKAnalysis(project_path=project_path)
 
+    return coco_lifespan
 
-mcp = FastMCP(name="coco", lifespan=coco_lifespan, description="Code Context (CoCo) Toolbox: Static code analysis toolbox as an MCP server")
 
 # The main entry point for the CLI application
 app = typer.Typer(
@@ -40,16 +44,6 @@ app = typer.Typer(
     rich_markup_mode="rich",
     pretty_exceptions_show_locals=False,
 )
-
-
-@mcp.tool()
-async def test_tool(ctx: Context):
-    """
-    Get the context for the CoCo MCP server.
-    """
-    context = await get_context(ctx)
-    analysis = context.request_context.lifespan_context["analysis"]
-    return analysis.project_path
 
 
 @app.callback()
@@ -64,13 +58,24 @@ def main():
 
 @app.command()
 def serve(
-    project_path: Annotated[Path, typer.Argument("-p", "--project-path", help="Path to the project directory")],
+    project_path: Annotated[Path, typer.Option("-p", "--project-path", help="Path to the project directory")],
 ):
     """
     Start the CoCo MCP server.
     """
-    global analysis
-    analysis = CLDK("java").analysis(project_path=project_path)
+    # Create MCP instance with project-specific lifespan
+    mcp = FastMCP(name="coco", lifespan=create_lifespan(project_path), description="Code Context (CoCo) Toolbox: Static code analysis toolbox as an MCP server")
+
+    # Register tools
+    @mcp.tool()
+    async def test_tool(ctx: Context):
+        """
+        Get the context for the CoCo MCP server.
+        """
+        analysis = ctx.request_context.lifespan_context.analysis_instance
+        return str(analysis.project_dir)
+
+    mcp.run()
 
 
 if __name__ == "__main__":
