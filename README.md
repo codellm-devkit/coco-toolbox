@@ -1,8 +1,4 @@
-<img src="https://github.com/codellm-devkit/coco-toolbox/blob/main/docs/assets/logo.png?raw=true" width="300" alt="CoCo Toolbox Logo">
-
-# **Code Context (CoCo) Toolbox: A Model Context Protocol (MCP) server for static code analysis powered by CLDK**
-
-## Overview
+<img src="https://github.com/codellm-devkit/coco-toolbox/blob/main/docs/assets/logo.png?raw=true" width="900" alt="CoCo Toolbox Logo">
 
 CoCo is a toolbox that provides static code analysis capabilities through the Model Context Protocol (MCP). It leverages the [CLDK](https://github.com/codellm-devkit/cldk) library to analyze Java projects and expose analysis tools via MCP for AI assistants and other clients.
 
