@@ -14,7 +14,7 @@ async def run():
         async with ClientSession(read, write) as session:
             # Initialize the connection
             await session.initialize()
-            result = await session.call_tool("test_tool", arguments={})
+            result = await session.call_tool("are_we_ready_tool", arguments={})
             print(result.content[0].text)
 
 
