@@ -2,7 +2,7 @@
 
 ---
 
-**COCO is a toolbox that provides static code analysis capabilities through the Model Context Protocol (MCP).** 
+**COCO Toolbox (Short for Code Context) is a suite of static analysis tools that provides analysis capabilities to LLMs through the Model Context Protocol (MCP).** 
 
 It leverages the [CLDK](https://github.com/codellm-devkit/python-sdk) library to analyze Java projects and expose analysis tools via MCP for AI assistants and other clients.
 
@@ -53,4 +53,4 @@ Start by looking at the test cases in the `tests` directory to understand how to
 uv run pytest --disable-warnings --pspec
 ```
 
-Each test case is writen to emulate a MCP client calling the server tool. For example, the [`test_are_we_ready_tool`](https://vscode.dev/github/codellm-devkit/cldk-coco-toolbox/blob/main/test/test_basic.py#L11) tests to check if the server is ready to accept requests by calling the `are_we_ready` tool.
+Each test case is writen to emulate a MCP client calling the server tool. For example, the [`test_are_we_ready_tool`](https://github.com/codellm-devkit/cldk-coco-toolbox/blob/main/test/test_basic.py#L11) tests to check if the server is ready to accept requests by calling the `are_we_ready` tool.
