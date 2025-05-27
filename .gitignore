@@ -125,5 +125,5 @@ cython_debug/
 # Emacs
 *~
 
+uv.lock
 # End of https://www.toptal.com/developers/gitignore/api:python,uv
-
