@@ -31,7 +31,7 @@ uv run coco serve --project-path <path_to_your_java_project>
 
 Replace `<path_to_your_java_project>` with the path to the Java project you want to analyze.
 
-You may also use uvx to run the server directly from the Git repository:
+You may also use `uvx` to run the server directly from this Git repository:
 
 ```bash
 uvx --from git+https://github.com/codellm-devkit/coco-toolbox coco serve --project-path <path_to_your_java_project>
