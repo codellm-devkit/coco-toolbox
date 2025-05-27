@@ -6,7 +6,9 @@ from dataclasses import dataclass, field
 from contextlib import asynccontextmanager
 from collections.abc import AsyncIterator
 from cldk.analysis.java import JavaAnalysis
-from fastmcp import FastMCP, Context
+from fastmcp import FastMCP
+
+from coco.tools import iter_tools
 
 
 @dataclass
@@ -66,14 +68,8 @@ def serve(
     mcp = FastMCP(name="coco", lifespan=create_lifespan(project_path), description="Code Context (CoCo) Toolbox: Static code analysis toolbox as an MCP server")
 
     # Register tools
-    @mcp.tool()
-    async def are_we_ready_tool(ctx: Context):
-        """
-        Get the context for the CoCo MCP server.
-        """
-        analysis = ctx.request_context.lifespan_context.analysis_instance
-        return str(analysis.project_dir)
-
+    for tool in iter_tools():
+        mcp.add_tool(tool)
     mcp.run()
 
 
