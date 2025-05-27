@@ -1,7 +1,7 @@
 # **Code Context (CoCo) Toolbox**
 **A Model Context Protocol (MCP) server for static code analysis powered by CLDK**
 
-![](https://github.com/codellm-devkit/coco-toolbox/blob/main/docs/assets/logo.png?raw=true)
+<img src="https://github.com/codellm-devkit/coco-toolbox/blob/main/docs/assets/logo.png?raw=true" width="300" alt="CoCo Toolbox Logo">
 
 ## Overview
 
