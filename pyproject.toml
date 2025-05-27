@@ -28,8 +28,18 @@ dependencies = [
     "typer>=0.16.0",
 ]
 
+[dependency-groups]
+test = [
+    "pytest>=8.3.5",
+    "pytest-asyncio>=1.0.0",
+    "pytest-cov>=6.1.1",
+    "pytest-pspec>=0.0.4",
+]
+
+
 [project.scripts]
 coco = "coco.cli:app"
+
 
 [project.urls]
 Homepage = "https://github.com/codellm-devkit/coco-toolbox"
@@ -46,3 +56,22 @@ count = true
 
 [tool.black]
 line-length = 180
+
+[tool.coverage.report]
+show_missing = true
+exclude_lines = [
+    "pragma: no cover",
+    "pragma: no branch",
+    "pass",
+    "subprocess.CalledProcessError",
+    "sys.exit",
+    "if __name__ == .__main__.:"
+]
+ignore_errors = true
+
+[tool.coverage.xml]
+output="./coverage.xml"
+
+[tool.coverage.html]
+title = "Test Coverage Report"
+directory = "coverage_html_report"

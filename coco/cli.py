@@ -67,7 +67,7 @@ def serve(
 
     # Register tools
     @mcp.tool()
-    async def test_tool(ctx: Context):
+    async def are_we_ready_tool(ctx: Context):
         """
         Get the context for the CoCo MCP server.
         """
