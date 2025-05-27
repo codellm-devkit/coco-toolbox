@@ -1,0 +1,48 @@
+[project]
+name = "coco"
+version = "0.1.0"
+description = "Code Context Toolbox - MCP server for static code analysis"
+authors = [
+    {name = "Rahul Krishna", email = "i.m.ralk@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+keywords = ["static-analysis", "mcp", "code-analysis", "cli"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Code Generators",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "cldk>=1.0.2",
+    "fastmcp>=2.5.1",
+    "mcp>=1.9.1",
+    "typer>=0.16.0",
+]
+
+[project.scripts]
+coco = "coco.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/codellm-devkit/coco-toolbox"
+Repository = "https://github.com/codellm-devkit/coco-toolbox"
+Issue = "https://github.com/codellm-devkit/coco-toolbox/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.flake8]
+max-line-length = 180
+count = true
+
+[tool.black]
+line-length = 180
