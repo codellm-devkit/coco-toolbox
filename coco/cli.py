@@ -7,7 +7,6 @@ from contextlib import asynccontextmanager
 from collections.abc import AsyncIterator
 from cldk.analysis.java import JavaAnalysis
 from fastmcp import FastMCP, Context
-from coco.utils.logging import logger
 
 
 @dataclass
@@ -20,7 +19,7 @@ class CLDKAnalysis:
     analysis_instance: JavaAnalysis | None = field(default=None, init=False)
 
     def __post_init__(self):
-        logger.info(f"Analysis initialized for project at: {self.project_path}")
+        typer.echo(f"Analysis initialized for project at: {self.project_path}")
         self.analysis_instance = CLDK("java").analysis(project_path=str(self.project_path))
 
 

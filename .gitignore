@@ -84,6 +84,7 @@ ipython_config.py
 Pipfile.lock
 
 # virtualenv
+.venv/
 venv/
 ENV/
 env.bak/
@@ -123,4 +124,6 @@ cython_debug/
 
 # Emacs
 *~
+
 # End of https://www.toptal.com/developers/gitignore/api:python,uv
+
