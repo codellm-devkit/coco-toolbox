@@ -48,9 +48,9 @@ app = typer.Typer(
 @app.callback()
 def main():
     """
-    [bold blue]Code Context Toolbox[/bold blue] - MCP server for static code analysis.
+    Code Context Toolbox: MCP server for static code analysis.
 
-    Start the server with: [cyan]coco serve[/cyan]
+    Start the server with: coco serve --project-path <path_to_project>
     """
     pass
 
