@@ -1,17 +1,20 @@
 <img src="https://github.com/codellm-devkit/coco-toolbox/blob/main/docs/assets/logo.png?raw=true" width="900" alt="CoCo Toolbox Logo">
 
-CoCo is a toolbox that provides static code analysis capabilities through the Model Context Protocol (MCP). It leverages the [CLDK](https://github.com/codellm-devkit/cldk) library to analyze Java projects and expose analysis tools via MCP for AI assistants and other clients.
+---
+
+**COCO is a toolbox that provides static code analysis capabilities through the Model Context Protocol (MCP).** 
+
+It leverages the [CLDK](https://github.com/codellm-devkit/python-sdk) library to analyze Java projects and expose analysis tools via MCP for AI assistants and other clients.
 
 ## Features
 
-- 🔍 Static code analysis for Java projects
-- 🔌 MCP server implementation for easy integration
-- 🛠️ Command-line interface with Typer
-- 📊 Built on top of CLDK analysis framework
+- 🔍 Static code analysis built on top of [CLDK](https://github.com/codellm-devkit/python-sdk) for Java projects
+- 🔌 MCP server implementation with a number of static analysis tools for easy integration
+- 🛠️ Easy command-line interface and invocation
 
 ## Installation
 
-Coco uses `uv` as the package manager. To install CoCo, run:
+COCO uses `uv` as the package manager. To install COCO, run:
 
 ```bash
 pipx install uv
@@ -20,7 +23,7 @@ Note: If you don't have `pipx` installed, you can install it via `pip install pi
 
 ## Usage
 
-To run the CoCo server, use the following command:
+To run the COCO server, use the following command:
 
 ```bash
 uv run coco serve --project-path <path_to_your_java_project>
@@ -33,3 +36,21 @@ You may also use uvx to run the server directly from the Git repository:
 ```bash
 uvx --from git+https://github.com/codellm-devkit/coco-toolbox coco serve --project-path <path_to_your_java_project>
 ```
+
+## Development
+
+To contribute to COCO, you can clone the repository and install the development dependencies:
+
+```bash
+git clone https://github.com/codellm-devkit/coco-toolbox.git
+cd coco-toolbox
+uv sync --all-groups
+```
+
+Start by looking at the test cases in the `tests` directory to understand how to use the tools and the MCP server. You can run the tests using:
+
+```bash
+uv run pytest --disable-warnings --pspec
+```
+
+Each test case is writen to emulate a MCP client calling the server tool. For example, the [`test_are_we_ready_tool`](https://vscode.dev/github/codellm-devkit/cldk-coco-toolbox/blob/main/test/test_basic.py#L11) tests to check if the server is ready to accept requests by calling the `are_we_ready` tool.
