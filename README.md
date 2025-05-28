@@ -17,9 +17,20 @@ It leverages the [CLDK](https://github.com/codellm-devkit/python-sdk) library to
 COCO uses `uv` as the package manager. To install COCO, run:
 
 ```bash
-pipx install uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
-Note: If you don't have `pipx` installed, you can install it via `pip install pipx`.
+
+or 
+
+```bash
+wget -qO- https://astral.sh/uv/install.sh | sh
+```
+
+or (for windows users)
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
 
 ## Usage
 

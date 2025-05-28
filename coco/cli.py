@@ -8,7 +8,7 @@ from collections.abc import AsyncIterator
 from cldk.analysis.java import JavaAnalysis
 from fastmcp import FastMCP
 
-from coco.tools import iter_tools
+from coco.tools import iter_explainers, iter_tools
 
 
 @dataclass
@@ -21,7 +21,6 @@ class CLDKAnalysis:
     analysis_instance: JavaAnalysis | None = field(default=None, init=False)
 
     def __post_init__(self):
-        typer.echo(f"Analysis initialized for project at: {self.project_path}")
         self.analysis_instance = CLDK("java").analysis(project_path=str(self.project_path))
 
 
@@ -70,6 +69,12 @@ def serve(
     # Register tools
     for tool in iter_tools():
         mcp.add_tool(tool)
+
+    # Register explainers
+    for explainer in iter_explainers():
+        mcp.add_tool(explainer)
+
+    # Run the MCP server
     mcp.run()
 
 
