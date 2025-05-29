@@ -2,9 +2,9 @@
 
 ---
 
-**COCO (short for Code Context) Toolbox is a suite of static analysis tools that provides analysis capabilities to LLMs through the Model Context Protocol (MCP).** 
+**COCOA (short for Code Context Agent) is a program analysis agent accompanied by a suite of static analysis tools that provides analysis capabilities to LLMs through the Model Context Protocol (MCP).** 
 
-It leverages the [CLDK](https://github.com/codellm-devkit/python-sdk) library to analyze Java projects and expose analysis tools via MCP for AI assistants and other clients.
+It leverages the [CLDK](https://github.com/codellm-devkit/python-sdk) library to analyze Java projects and expose analysis tools via MCP to act as an agentic AI assistant as well as a toolbox other clients to use.
 
 ## Features
 
