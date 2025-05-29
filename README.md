@@ -1,4 +1,4 @@
-<img src="https://github.com/codellm-devkit/coco-toolbox/blob/main/docs/assets/logo.svg?raw=true" width="900" alt="CoCo Toolbox Logo">
+<img src="https://github.com/codellm-devkit/coco-toolbox/blob/main/docs/assets/logo.png?raw=true" width="900" alt="CoCo Toolbox Logo">
 
 ---
 
