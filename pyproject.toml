@@ -1,5 +1,5 @@
 [project]
-name = "coco"
+name = "cocoa"
 version = "0.1.0"
 description = "Code Context Toolbox - MCP server for static code analysis"
 authors = [
@@ -42,7 +42,7 @@ dev = [
 
 
 [project.scripts]
-coco = "coco.cli:app"
+cocoa = "cocoa.cli:app"
 
 
 [project.urls]

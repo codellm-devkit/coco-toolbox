@@ -16,6 +16,6 @@ def coco_server_params(project_path):
     """Create server parameters using Python module execution."""
     return StdioServerParameters(
         command=sys.executable,  # Use current Python interpreter
-        args=["-m", "coco.cli", "serve", "--project-path", str(project_path)],
+        args=["-m", "cocoa.cli", "toolbox", "--project-path", str(project_path)],
         env=None,
     )

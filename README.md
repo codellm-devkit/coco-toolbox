@@ -14,7 +14,7 @@ It leverages the [CLDK](https://github.com/codellm-devkit/python-sdk) library to
 
 ## Installation
 
-COCO uses `uv` as the package manager. To install COCO, run:
+COCOA uses `uv` as the package manager. To install `uv`, run:
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -34,10 +34,10 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 
 ## Usage
 
-To run the COCO server, use the following command:
+To run the COCOA server, use the following command:
 
 ```bash
-uv run coco serve --project-path <path_to_your_java_project>
+uv run cocoa serve --project-path <path_to_your_java_project>
 ```
 
 Replace `<path_to_your_java_project>` with the path to the Java project you want to analyze.
@@ -50,7 +50,7 @@ uvx --from git+https://github.com/codellm-devkit/coco-toolbox coco serve --proje
 
 ## Development
 
-To contribute to COCO, you can clone the repository and install the development dependencies:
+To contribute to COCOA, you can clone the repository and install the development dependencies:
 
 ```bash
 git clone https://github.com/codellm-devkit/coco-toolbox.git

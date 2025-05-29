@@ -3,8 +3,8 @@ from mcp.client.stdio import stdio_client
 
 # Create server parameters for stdio connection
 server_params = StdioServerParameters(
-    command="coco",  # Executable
-    args=["serve", "--project-path", "/Users/rkrsn/workspace/codeanalyzer-test-projects/sample.daytrader8"],  # Optional command line arguments
+    command="cocoa",  # Executable
+    args=["toolbox", "--project-path", "/Users/rkrsn/workspace/codeanalyzer-test-projects/sample.daytrader8"],  # Optional command line arguments
     env=None,  # Optional environment variables
 )
 

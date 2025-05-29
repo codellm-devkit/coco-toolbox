@@ -5,7 +5,7 @@ from mcp.client.stdio import stdio_client
 
 
 class TestBasicCocoMCPServer:
-    """Test basic functionality of the CoCo MCP server."""
+    """Test basic functionality of the cocoa MCP server."""
 
     @pytest.mark.asyncio
     async def test_list_tools(self, coco_server_params, project_path):
